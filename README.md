@@ -1,73 +1,66 @@
-# Company Research Tool
+# Project Name
 
-This project is a comprehensive company research tool that gathers and analyzes data from various sources to provide detailed insights about a company.
+## Overview
+
+Provide a brief description of your project. Explain what it does, its main features, and its purpose.
 
 ## Features
 
-- Deep crawling of company websites
-- Social media analysis
-- News and updates aggregation
-- Industry and competitor analysis
-- Financial information gathering
-- Technical stack analysis
-- Employee reviews and company culture insights
-- Cross-validation with additional sources
+- List the key features of your project.
+- Highlight any unique or important aspects.
 
-## Setup
+## Installation
 
-### Prerequisites
-
-- Python 3.7 or higher
-- An internet connection for web crawling and API access
-
-### Installation
-
-1. **Clone the repository:**
-
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/company-research-tool.git
-   cd company-research-tool
+   git clone https://github.com/MockVerseAI/mockverse-scrapers.git
+   cd your-repo-name
    ```
 
-2. **Create a virtual environment:**
+2. **Set Up the Environment**:
+   - Ensure you have Python installed.
+   - Install the required packages:
+     ```bash
+     pip install -r requirements.txt
+     ```
 
+3. **Environment Variables**:
+   - Create a `.env` file in the root directory and add your environment variables:
+     ```
+     GOOGLE_API_KEY=your_api_key_here
+     ```
+
+## Usage
+
+### Running the Script
+
+To run the script directly and perform company research:
+
+```bash
+python src/company_research/company_research.py
+```
+
+### Using the API
+
+1. **Start the FastAPI Server**:
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   uvicorn src.main:app --reload
    ```
 
-3. **Install the dependencies:**
+2. **Trigger Research via API**:
+   - Send a POST request to the `/research` endpoint with a JSON body containing the `company_name`.
 
+   Example using `curl`:
    ```bash
-   pip install -r requirements.txt
+   curl -X POST "http://127.0.0.1:8000/research" -H "Content-Type: application/json" -d '{"company_name": "Example Company"}'
    ```
 
-### Configuration
-
-- **API Key**: The project uses the Google GenAI API. You need to replace the `api_key` in `app.py` with your own API key.
-
-### Usage
-
-1. **Run the application:**
-
-   ```bash
-   python app.py
-   ```
-
-2. **Enter the company name** when prompted to start the research process.
-
-3. **Results** will be saved in the `results` directory, organized by company name and date.
-
-### Project Structure
+## Directory Structure
 
 - `app.py`: Main application file containing the logic for data gathering and analysis.
 - `requirements.txt`: List of dependencies required to run the project.
 - `results/`: Directory where research results are saved.
 
-### Contributing
+## Contributing
 
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-### License
-
-This project is licensed under the MIT License.
+If you would like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
